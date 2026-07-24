@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+void add(float a[], int n, float b[]) {
+    for (int i = 0; i < n; i++) {
+        a[i] += b[i];
+    }
+}
+
+void printArray(float a[], int size) {
+    printf("{");
+    for (int i = 0; i < size; i++) {
+        printf("%.1f", a[i]);
+        if (i < size - 1) printf(", ");
+    }
+    printf("}\n");
+}
+
+int main() {
+    float a[8] = {2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9};
+    float b[] = {6.0, 5.0, 4.0, 3.0, 2.0, 1.0};
+    int n = 6;
+
+    printf("a before: ");
+    printArray(a, 8);
+
+    printf("b:        ");
+    printArray(b, n);
+
+    add(a, n, b);
+
+    printf("a after:  ");
+    printArray(a, 8);
+
+    return 0;
+}
