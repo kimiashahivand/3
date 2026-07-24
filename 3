@@ -1,12 +1,19 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h>
 
 int main() {
-    for (int i = 1; i <= 5; i++) {
-        for (int j = 1; j <= 5 - i; j++)
-            cout << " ";
-        for (int j = 1; j <= i; j++)
-            cout << "* ";    
-        cout << "\n";
+    float a[5];
+    int i;
+
+    printf("Enter 5 numbers\n");
+    for (i = 4; i >= 0; i--) {
+        printf("a[%d] : ", i);
+        scanf("%f", &a[i]);
     }
+
+    printf("\nIn reverse order, they are:\n");
+    for (i = 0; i < 5; i++) {
+        printf("a[%d] = %.2f\n", i, a[i]);
+    }
+
+    return 0;
 }
