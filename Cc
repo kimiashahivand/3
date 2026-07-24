@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+void outerProduct(float p[][3], float a[], float b[]) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            p[i][j] = a[i] * b[j];
+        }
+    }
+}
+
+void printMatrix(float p[][3]) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%6.1f ", p[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void printVector(float v[], int n) {
+    printf("{");
+    for (int i = 0; i < n; i++) {
+        printf("%.1f", v[i]);
+        if (i < n - 1) printf(", ");
+    }
+    printf("}");
+}
+
+int main() {
+    float p[3][3];
+    float a[] = {2.0, -1.0, 0.0};
+    float b[] = {2.2, 3.3, 4.4};
+
+    printf("a = ");
+    printVector(a, 3);
+    printf("\n");
+
+    printf("b = ");
+    printVector(b, 3);
+    printf("\n\n");
+
+    printf("Outer Product p = a × b:\n");
+    outerProduct(p, a, b);
+    printMatrix(p);
+
+    return 0;
+}
