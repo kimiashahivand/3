@@ -1,21 +1,19 @@
-#include <iostream>
-#include <cmath>
+#include <stdio.h>
 
 int main() {
-    double x;
-    std::cout << "x ra vared konid (radian): ";
-    std::cin >> x;
+    float a[5];
+    int i;
 
-    double left = std::cos(2.0 * x);
-    double right = 2.0 * std::cos(x) * std::cos(x) - 1.0;
+    printf("Enter 5 numbers\n");
+    for (i = 0; i < 5; i++) {
+        printf("a[%d] : ", i);
+        scanf("%f", &a[i]);
+    }
 
-    std::cout << "cos(2x) = " << left << std::endl;
-    std::cout << "2cos^2(x)-1 = " << right << std::endl;
-
-    if (std::fabs(left - right) < 1e-9)
-        std::cout << "Rabete bargharar ast." << std::endl;
-    else
-        std::cout << "Rabete bargharar nist." << std::endl;
+    printf("\nIn reverse order, they are:\n");
+    for (i = 4; i >= 0; i--) {
+        printf("a[%d] = %.2f\n", i, a[i]);
+    }
 
     return 0;
 }
