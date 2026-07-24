@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+void rotate(int a[], int n, int k) {
+  
+    k = k % n;
+    if (k < 0) {
+        k = k + n; 
+    }
+    
+
+    if (k == 0) return;
+
+  
+    int temp[k];
+    for (int i = 0; i < k; i++) {
+        temp[i] = a[n - k + i];
+    }
+
+  
+    for (int i = n - 1; i >= k; i--) {
+        a[i] = a[i - k];
+    }
+
+    for (int i = 0; i < k; i++) {
+        a[i] = temp[i];
+    }
+}
+
+void printArray(int a[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf("%d ", a[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int a[] = {1, 2, 3, 4, 5, 6, 7};
+    int n = 7;
+
+    printf("Original array: ");
+    printArray(a, n);
+
+    rotate(a, n, 2);
+    printf("After rotating right by 2: ");
+    printArray(a, n);
+    int b[] = {1, 2, 3, 4, 5, 6, 7};
+    rotate(b, n, -3);
+    printf("After rotating left by 3: ");
+    printArray(b, n);
+
+    return 0;
+}
