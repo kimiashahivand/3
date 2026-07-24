@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+bool isNonAscending(int a[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        if (a[i] < a[i + 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    int a[5];
+    printf("Enter 5 numbers:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("a[%d] : ", i);
+        scanf("%d", &a[i]);
+    }
+
+    if (isNonAscending(a, 5)) {
+        printf("Array is non-ascending (descending).\n");
+    } else {
+        printf("Array is NOT non-ascending.\n");
+    }
+
+    return 0;
+}
