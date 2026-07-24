@@ -1,0 +1,41 @@
+#include <stdio.h>
+#define SIZE 3
+
+void rotate90Clockwise(int mat[SIZE][SIZE], int result[SIZE][SIZE]) {
+    printf("\nTransformation details:\n");
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            result[j][SIZE - 1 - i] = mat[i][j];
+            printf("mat[%d][%d](%d) → result[%d][%d]\n", 
+                   i, j, mat[i][j], j, SIZE - 1 - i);
+        }
+    }
+}
+
+void printMatrix(int mat[SIZE][SIZE]) {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            printf("%4d ", mat[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int mat[SIZE][SIZE] = {
+        {11, 22, 33},
+        {44, 55, 66},
+        {77, 88, 99}
+    };
+    int result[SIZE][SIZE];
+
+    printf("Original matrix:\n");
+    printMatrix(mat);
+
+    rotate90Clockwise(mat, result);
+
+    printf("\nRotated matrix:\n");
+    printMatrix(result);
+
+    return 0;
+}
